@@ -1,0 +1,9 @@
+import pandas as pd
+import json
+
+# Convert Excel To Json With Python
+data = pd.read_excel("student.xlsx", sheet_name="suraj1")
+json_data = data.to_json()
+
+# Print the JSON data
+print(json_data)

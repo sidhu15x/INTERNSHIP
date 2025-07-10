@@ -1,0 +1,24 @@
+import mysql.connector
+from mysql.connector import Error
+
+try:
+    # Connect to MySQL
+    conn = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="Testing@1234",
+        database="learningdb"
+    )
+
+    if conn.is_connected():
+        print("✅ Connection established successfully!")
+        db_info = conn.get_server_info()
+        print("MySQL Server version:", db_info)
+
+except Error as e:
+    print("❌ Error while connecting to MySQL:", e)
+
+finally:
+    if 'conn' in locals() and conn.is_connected():
+        conn.close()
+        print("🔌 MySQL connection closed.")
